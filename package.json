@@ -2,26 +2,32 @@
   "name": "YOUR-LIBRARY-NAME",
   "description": "YOUR-DESCRIPTION",
   "author": "Mason L'Etoile",
+  "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/starweb-libs/YOUR-LIBRARY-NAME"
+    "url": "git+https://github.com/starweb-libs/YOUR-LIBRARY-NAME"
+  },
+  "homepage": "https://github.com/starweb-libs/YOUR-LIBRARY-NAME#readme",
+  "bugs": {
+    "url": "https://github.com/starweb-libs/YOUR-LIBRARY-NAME/issues"
   },
   "keywords": ["starweb"],
-  "version": "1.0.0",
   "type": "module",
   "devDependencies": {
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.2",
+    "tsdown": "^0.22.0"
   },
-  "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "prepare": "tsc -p tsconfig.build.json"
+ "scripts": {
+    "build": "tsdown",
+    "prepare": "npm run build"
   },
-  "files": ["dist", "src"],
+  "files": ["dist"],
   "exports": {
-    "./*.js": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js"
+    "./types.js": {
+      "types": "./dist/types.d.mts",
+      "@starweb-libs/source": "./src/types.ts",
+      "import": "./dist/types.mjs"
     }
   }
 }
